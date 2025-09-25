@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/veiculo")
 public class VeiculoController {
@@ -27,6 +29,12 @@ public class VeiculoController {
     public ResponseEntity<VeiculoEntity> findByIdVeiculo(@PathVariable Long id) {
         var veiculo = veiculoService.findByIdVeiculo(id);
         return ResponseEntity.ok(veiculo.get());
+    }
+
+    @GetMapping("/listarVeiculos")
+    public ResponseEntity<List<VeiculoEntity>> buscaTodosVeiculos() {
+        var listVeiculos = veiculoService.buscaTodosVeiculos();
+        return ResponseEntity.ok(listVeiculos);
     }
 
     @DeleteMapping("/excluirVeiculo/{id}")
