@@ -4,10 +4,7 @@ import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.service.VeiculoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/veiculo")
@@ -23,6 +20,12 @@ public class VeiculoController {
     public ResponseEntity novoVeiculo(@Valid @RequestBody NovoVeiculoDTO novoVeiculoDTO) {
         veiculoService.novoVeiculo(novoVeiculoDTO);
         return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/excluirVeiculo/{id}")
+    public ResponseEntity excluirVeiculo(@PathVariable Long id) {
+        veiculoService.excluirVeiculo(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

@@ -2,6 +2,7 @@ package br.com.tinnova.TinnovaVeiculo.service;
 
 import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.entity.VeiculoEntity;
+import br.com.tinnova.TinnovaVeiculo.exception.VeiculoIdNotFoundException;
 import br.com.tinnova.TinnovaVeiculo.repository.VeiculoRepository;
 import org.springframework.stereotype.Service;
 
@@ -29,4 +30,11 @@ public class VeiculoService {
         veiculoRepository.save(veiculo);
     }
 
+    public void excluirVeiculo(Long id) {
+        var veiculo = veiculoRepository.findById(id);
+        if (veiculo.isEmpty()) {
+            throw new VeiculoIdNotFoundException("Veiculo com o id não foi encontrado");
+        }
+        veiculoRepository.delete(veiculo.get());
+    }
 }
