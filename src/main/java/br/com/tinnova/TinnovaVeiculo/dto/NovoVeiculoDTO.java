@@ -1,9 +1,7 @@
 package br.com.tinnova.TinnovaVeiculo.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public record NovoVeiculoDTO(
 
@@ -17,7 +15,8 @@ public record NovoVeiculoDTO(
 
         @Schema(description = "Ano de fabricação", example = "2005")
         @NotNull
-        @Size(min = 4, max = 4, message = "Ano do veículo deve conter 4 números")
+        @Min(value = 1000, message = "Ano do veículo deve conter 4 números")
+        @Max(value = 9999, message = "Ano do veículo deve conter 4 números")
         Integer ano,
 
         @Schema(description = "Descrição detalhada do veículo", example = "Carro em ótimo estado")
