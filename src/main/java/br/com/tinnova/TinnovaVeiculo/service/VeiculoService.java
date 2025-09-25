@@ -7,6 +7,7 @@ import br.com.tinnova.TinnovaVeiculo.repository.VeiculoRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,5 +47,9 @@ public class VeiculoService {
             throw new VeiculoIdNotFoundException("Veiculo com o id não foi encontrado");
         }
         return veiculo;
+    }
+
+    public List<VeiculoEntity> buscaTodosVeiculos() {
+        return veiculoRepository.findAll();
     }
 }
