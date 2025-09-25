@@ -7,6 +7,7 @@ import br.com.tinnova.TinnovaVeiculo.repository.VeiculoRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class VeiculoService {
@@ -31,10 +32,19 @@ public class VeiculoService {
     }
 
     public void excluirVeiculo(Long id) {
+        Optional<VeiculoEntity> veiculo = getVeiculoEntity(id);
+        veiculoRepository.delete(veiculo.get());
+    }
+
+    public Optional<VeiculoEntity> findByIdVeiculo(Long id) {
+        return getVeiculoEntity(id);
+    }
+
+    private Optional<VeiculoEntity> getVeiculoEntity(Long id) {
         var veiculo = veiculoRepository.findById(id);
         if (veiculo.isEmpty()) {
             throw new VeiculoIdNotFoundException("Veiculo com o id não foi encontrado");
         }
-        veiculoRepository.delete(veiculo.get());
+        return veiculo;
     }
 }
