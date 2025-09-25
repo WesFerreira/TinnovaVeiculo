@@ -52,4 +52,9 @@ public class VeiculoService {
     public List<VeiculoEntity> buscaTodosVeiculos() {
         return veiculoRepository.findAll();
     }
+
+    public List<VeiculoEntity> buscaTodosVeiculosDisponiveis() {
+        return veiculoRepository.findByVendidoFalse();
+
+    }
 }
