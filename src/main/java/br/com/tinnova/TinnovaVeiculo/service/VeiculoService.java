@@ -76,4 +76,8 @@ public class VeiculoService {
 
         return veiculoRepository.save(veiculo);
     }
+
+    public Long countVeiculosDisponiveis() {
+        return veiculoRepository.countByVendidoFalse();
+    }
 }
