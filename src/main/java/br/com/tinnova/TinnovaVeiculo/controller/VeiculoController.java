@@ -1,5 +1,6 @@
 package br.com.tinnova.TinnovaVeiculo.controller;
 
+import br.com.tinnova.TinnovaVeiculo.dto.AtualizaVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.entity.VeiculoEntity;
 import br.com.tinnova.TinnovaVeiculo.service.VeiculoService;
@@ -50,6 +51,13 @@ public class VeiculoController {
         var listVeiculos = veiculoService.buscaDetalhadaVeiculos(veiculo, ano, marca);
         return ResponseEntity.ok(listVeiculos);
     }
+
+    @PutMapping("/atualizaVeiculos")
+    public ResponseEntity<VeiculoEntity> atualizaVeiculos(@RequestBody AtualizaVeiculoDTO veiculoAtualizadoDTO) {
+        var veiculoAtualizado = veiculoService.atualizaVeiculos(veiculoAtualizadoDTO);
+        return ResponseEntity.ok(veiculoAtualizado);
+    }
+
     @DeleteMapping("/excluirVeiculo/{id}")
     public ResponseEntity excluirVeiculo(@PathVariable Long id) {
         veiculoService.excluirVeiculo(id);

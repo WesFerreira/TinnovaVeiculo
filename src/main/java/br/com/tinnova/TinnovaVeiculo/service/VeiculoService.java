@@ -1,5 +1,6 @@
 package br.com.tinnova.TinnovaVeiculo.service;
 
+import br.com.tinnova.TinnovaVeiculo.dto.AtualizaVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.entity.VeiculoEntity;
 import br.com.tinnova.TinnovaVeiculo.exception.VeiculoIdNotFoundException;
@@ -60,5 +61,19 @@ public class VeiculoService {
 
     public List<VeiculoEntity> buscaDetalhadaVeiculos(String veiculo, Integer ano, String marca) {
         return veiculoRepository.buscaDetalhadaVeiculos(veiculo, ano, marca);
+    }
+
+    public VeiculoEntity  atualizaVeiculos(AtualizaVeiculoDTO veiculoAtualizadoDTO) {
+        var veiculo = findByIdVeiculo(veiculoAtualizadoDTO.id())
+                .orElseThrow(() -> new RuntimeException("Veículo não encontrado"));
+
+        if (veiculoAtualizadoDTO.veiculo() != null) veiculo.setVeiculo(veiculoAtualizadoDTO.veiculo());
+        if (veiculoAtualizadoDTO.marca() != null) veiculo.setMarca(veiculoAtualizadoDTO.marca());
+        if (veiculoAtualizadoDTO.ano() != null) veiculo.setAno(veiculoAtualizadoDTO.ano());
+        if (veiculoAtualizadoDTO.descricao() != null) veiculo.setDescricao(veiculoAtualizadoDTO.descricao());
+        if (veiculoAtualizadoDTO.vendido() != null) veiculo.setVendido(veiculoAtualizadoDTO.vendido());
+        veiculo.setUpdatedVeiculo(LocalDateTime.now());
+
+        return veiculoRepository.save(veiculo);
     }
 }
