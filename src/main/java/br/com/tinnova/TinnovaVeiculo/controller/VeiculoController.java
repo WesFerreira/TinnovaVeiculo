@@ -43,6 +43,13 @@ public class VeiculoController {
         return ResponseEntity.ok(listVeiculos);
     }
 
+    @GetMapping("/buscaDetalhadaVeiculos")
+    public ResponseEntity<List<VeiculoEntity>> buscaDetalhadaVeiculos(@RequestParam(required = false) String veiculo,
+                                                                      @RequestParam(required = false) Integer ano,
+                                                                      @RequestParam(required = false) String marca) {
+        var listVeiculos = veiculoService.buscaDetalhadaVeiculos(veiculo, ano, marca);
+        return ResponseEntity.ok(listVeiculos);
+    }
     @DeleteMapping("/excluirVeiculo/{id}")
     public ResponseEntity excluirVeiculo(@PathVariable Long id) {
         veiculoService.excluirVeiculo(id);

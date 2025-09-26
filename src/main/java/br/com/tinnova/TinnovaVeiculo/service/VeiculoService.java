@@ -57,4 +57,8 @@ public class VeiculoService {
         return veiculoRepository.findByVendidoFalse();
 
     }
+
+    public List<VeiculoEntity> buscaDetalhadaVeiculos(String veiculo, Integer ano, String marca) {
+        return veiculoRepository.buscaDetalhadaVeiculos(veiculo, ano, marca);
+    }
 }
