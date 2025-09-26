@@ -1,6 +1,7 @@
 package br.com.tinnova.TinnovaVeiculo.service;
 
 import br.com.tinnova.TinnovaVeiculo.dto.AtualizaVeiculoDTO;
+import br.com.tinnova.TinnovaVeiculo.dto.DistribuicaoMarcaDTO;
 import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.entity.VeiculoEntity;
 import br.com.tinnova.TinnovaVeiculo.exception.VeiculoIdNotFoundException;
@@ -80,4 +81,12 @@ public class VeiculoService {
     public Long countVeiculosDisponiveis() {
         return veiculoRepository.countByVendidoFalse();
     }
+
+    public List<DistribuicaoMarcaDTO> distribuicaoPorMarca() {
+        return veiculoRepository.countByMarca()
+                .stream()
+                .map(p -> new DistribuicaoMarcaDTO(p.getMarca(), p.getTotal()))
+                .toList();
+    }
+
 }

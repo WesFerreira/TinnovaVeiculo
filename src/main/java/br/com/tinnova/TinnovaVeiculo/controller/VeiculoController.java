@@ -1,6 +1,7 @@
 package br.com.tinnova.TinnovaVeiculo.controller;
 
 import br.com.tinnova.TinnovaVeiculo.dto.AtualizaVeiculoDTO;
+import br.com.tinnova.TinnovaVeiculo.dto.DistribuicaoMarcaDTO;
 import br.com.tinnova.TinnovaVeiculo.dto.NovoVeiculoDTO;
 import br.com.tinnova.TinnovaVeiculo.entity.VeiculoEntity;
 import br.com.tinnova.TinnovaVeiculo.service.VeiculoService;
@@ -55,6 +56,12 @@ public class VeiculoController {
     @GetMapping("/countVeiculosDisponiveis")
     public ResponseEntity<Long> countVeiculosDisponiveis() {
         var count = veiculoService.countVeiculosDisponiveis();
+        return ResponseEntity.ok(count);
+    }
+
+    @GetMapping("/distribuicaoMarcas")
+    public ResponseEntity<List<DistribuicaoMarcaDTO>> distribuicaoPorMarcas() {
+        var count = veiculoService.distribuicaoPorMarca();
         return ResponseEntity.ok(count);
     }
 
