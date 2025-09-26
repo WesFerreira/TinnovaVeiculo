@@ -52,6 +52,12 @@ public class VeiculoController {
         return ResponseEntity.ok(listVeiculos);
     }
 
+    @GetMapping("/countVeiculosDisponiveis")
+    public ResponseEntity<Long> countVeiculosDisponiveis() {
+        var count = veiculoService.countVeiculosDisponiveis();
+        return ResponseEntity.ok(count);
+    }
+
     @PutMapping("/atualizaVeiculos")
     public ResponseEntity<VeiculoEntity> atualizaVeiculos(@RequestBody AtualizaVeiculoDTO veiculoAtualizadoDTO) {
         var veiculoAtualizado = veiculoService.atualizaVeiculos(veiculoAtualizadoDTO);

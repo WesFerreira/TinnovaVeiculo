@@ -18,4 +18,6 @@ public interface VeiculoRepository extends JpaRepository<VeiculoEntity, Long> {
                                                @Param("ano") Integer ano,
                                                @Param("marca") String marca);
 
+    Long countByVendidoFalse();
+
 }
