@@ -25,3 +25,7 @@ A collection do Postman está disponível no repositório:
 2. Vá em **File > Import...**
 3. Selecione o arquivo `Tinnova.postman_collection.json`
 4. A collection aparecerá no painel lateral do Postman pronta para uso ✅
+
+## 📖 Exercícios 1, 2, 3 e 4
+Os exercícios estão disponíveis no pacote:
+`src/main/java/br/com/tinnova/TinnovaVeiculo/exercicios`
