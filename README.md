@@ -5,7 +5,7 @@ O projeto utiliza **MariaDB 10.6.11** como banco de dados relacional e está est
 
 ## 🛠️ Tecnologias Utilizadas
 - **Java 21**
-- **Spring Boot 3.5.6**
+- **Spring Boot 3.3.0**
 - **Maven 3.9+**
 - **MariaDB 10.6.11** (compatível com MySQL)
 
