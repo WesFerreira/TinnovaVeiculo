@@ -17,7 +17,9 @@ Antes de rodar o projeto, certifique-se de ter instalado:
 
 ## 📖 Documentação da API
 
-A collection do Postman está disponível no repositório:  
+- Swagger UI: `http://localhost:8080/swagger-ui.html`
+- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
+- A collection do Postman está disponível no repositório:  
 [`docs/Tinnova.postman_collection.json`](docs/Tinnova.postman_collection.json)
 
 ### ▶️ Como importar no Postman
