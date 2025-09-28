@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "3531b80b-6451-4bac-8ae2-4fdc42c7f6bd",
+		"name": "Tinnova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32629679"
+	},
+	"item": [
+		{
+			"name": "novoVeiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"veiculo\": \"Fusca\",\r\n    \"marca\": \"Volkswagen\",\r\n    \"ano\": 1972,\r\n    \"descricao\": \"Carro único dono\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/veiculo/novoVeiculo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"novoVeiculo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluirVeiculo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/veiculo/excluirVeiculo/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"excluirVeiculo",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "veiculoId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"veiculo\": \"Carro\",\r\n    \"marca\": \"Honda\",\r\n    \"ano\": 2005,\r\n    \"descricao\": \"Carro em ótimo estado\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/veiculo/veiculoId/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"veiculoId",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarVeiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/veiculo/listarVeiculos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"listarVeiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "veiculosDisponiveis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/veiculo/veiculosDisponiveis",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"veiculosDisponiveis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscaDetalhadaVeiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/veiculo/buscaDetalhadaVeiculos?ano=2005&veiculo=civic&marca=Honda",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"buscaDetalhadaVeiculos"
+					],
+					"query": [
+						{
+							"key": "ano",
+							"value": "2005"
+						},
+						{
+							"key": "veiculo",
+							"value": "civic"
+						},
+						{
+							"key": "marca",
+							"value": "Honda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizaVeiculos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 8,\r\n    \"veiculo\" : \"Corolla\",\r\n    \"marca\" : \"Toyota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/veiculo/atualizaVeiculos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo",
+						"atualizaVeiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "countVeiculosDisponiveis",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "distribuicaoMarcas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
