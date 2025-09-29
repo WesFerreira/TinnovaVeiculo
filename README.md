@@ -1,6 +1,6 @@
 # 🗳️ API de Gestão de Veículos - Tinnova
 
-Aplicação desenvolvida em **Java 21** e **Spring Boot 3.5.6** para gestão de veículos.  
+Aplicação desenvolvida em **Java 21** e **Spring Boot 3.3.0** para gestão de veículos.  
 O projeto utiliza **MariaDB 10.6.11** como banco de dados relacional e está estruturado para ser executado com **Maven**.
 
 ## 🛠️ Tecnologias Utilizadas
